@@ -9,11 +9,13 @@ class UserTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
-
+  
+#モデルオブジェクト自身に問題がないか
   # 有効性のテスト
   test "should be valid" do
     assert @user.valid?
   end
+#モデルの要素に問題がないか
 
   # name属性の検証(validation)に対するテスト
   test "name should be present" do
@@ -49,7 +51,7 @@ class UserTest < ActiveSupport::TestCase
 
   # 無効なメールアドレスのフォーマットをテスト
   test "email validation should reject invalid addresses" do
-    invalid_addresses = %w[user@example,com user_at_foo.org user.name@example. foo@ex..com
+    invalid_addresses = %w[user@example,com user_at_foo.org user.name@example.
                            foo@bar_baz.com foo@bar+baz.com]
     invalid_addresses.each do |invalid_address|
       @user.email = invalid_address
@@ -83,5 +85,9 @@ class UserTest < ActiveSupport::TestCase
     @user.password = @user.password_confirmation = "a" * 5
     assert_not @user.valid?
   end
-  
+
+  test "authenticated? should return false for a user with nil digest" do
+  #記憶トークンが使われる前にエラーが発生
+    assert_not @user.authenticated?('')
+  end
 end
