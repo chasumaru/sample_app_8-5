@@ -4,6 +4,8 @@ User.create!(name:  "Example User",
     password:              "foobar",
     password_confirmation: "foobar",
     admin: true)
+    activated: true
+    activated_at: Time.zone.now
 
 # 追加のユーザーをまとめて生成する
 99.times do |n|
@@ -14,4 +16,6 @@ User.create!(name:  name,
       email: email,
       password:              password,
       password_confirmation: password)
+      activated: true
+      activated_at: Time.zone.now
 end
