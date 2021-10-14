@@ -36,6 +36,13 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
+  host = 'localhost:3000' # ここをコピペすると失敗します。自分の環境のホストに変えてください。
+
+  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+
+
+
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
