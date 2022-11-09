@@ -1,6 +1,6 @@
 # README
 
-# Ruby on Rails チュートリアルのサンプルアプリケーション
+# Ruby on Rails チュートリアルのサンプルアプリケーション(第12章まで)
 
 これは、次の教材で作られたサンプルアプリケーションです。
 [*Ruby on Rails チュートリアル*](https://railstutorial.jp/)
